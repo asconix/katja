@@ -193,11 +193,11 @@ random_uniform() ->
 -else.
 random_uniform() ->
     ok = maybe_seed(),
-    random:uniform().
+    rand:uniform().
 maybe_seed() ->
   _ = case erlang:get(random_seed) of
-    undefined -> random:seed(os:timestamp());
-    {R, R, R} -> random:seed(os:timestamp());
+    undefined -> rand:seed(os:timestamp());
+    {R, R, R} -> rand:seed(os:timestamp());
     _ -> ok
   end,
   ok.
